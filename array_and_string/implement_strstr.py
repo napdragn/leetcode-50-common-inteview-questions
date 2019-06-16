@@ -6,20 +6,18 @@ def str_str(haystack: str, needle: str) -> int:
     if n_len > h_len:
         return -1
     elif n_len == 0:
-        return n_len
+        return 0
     for i in range(h_len):
         # If no of characters remaining to be searched in haystack less than
         # needle length, no need to search further, return -1
         if (h_len - i) < n_len:
             return -1
-        temp_i = i
         for j in range(n_len):
-            if temp_i >= h_len:
+            if (i + j) >= h_len:
                 return -1
-            elif haystack[temp_i] == needle[j]:
+            elif haystack[i + j] == needle[j]:
                 if j == (n_len - 1):
                     return i
-                temp_i += 1
             else:
                 break
     return -1
